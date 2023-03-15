@@ -51,3 +51,14 @@ function showQuestion() {
     docId('answer_3').innerHTML = question['answer_3'];
     docId('answer_4').innerHTML = question['answer_4'];
 }
+
+function answer (selection) {
+    let question = questions[currentQuestion];
+    let selectedQuestionNumber = selection.slice(-1)
+
+    if(selectedQuestionNumber == question['right_answer']){
+        console.log('Richtige Antwort!!');
+    } else {
+        console.log('Falsch');
+    }
+}
