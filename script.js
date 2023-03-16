@@ -56,10 +56,14 @@ function answer (selection) {
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1)
 
+    let idOfRightAnswer = `answer_${question['right_answer']}`
+
     if(selectedQuestionNumber == question['right_answer']){
         console.log('Richtige Antwort!!');
         docId(selection).parentNode.classList.add('bg-success');
     } else {
-        console.log('Falsch');
-    }   docId(selection).parentNode.classList.add('bg-danger');
+        docId(selection).parentNode.classList.add('bg-danger');
+        docId(idOfRightAnswer).parentNode.classList.add('bg-success')
+    }   
+
 }
