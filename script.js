@@ -55,6 +55,13 @@ function showQuestion() {
         docId('header-image').src = "./img/winner.jpg";
 
     } else {
+
+        let percent = (currentQuestion +1) / questions.length ;
+        percent *= 100;
+        percent = percent.toFixed(0);
+        docId('progress-bar').innerHTML = `${percent} %`;
+        docId('progress-bar').style.width = `${percent}%`;
+
         let question = questions[currentQuestion];
         docId('questiontext').innerHTML = question['question'];
         docId('answer_1').innerHTML = question['answer_1'];
@@ -63,7 +70,6 @@ function showQuestion() {
         docId('answer_4').innerHTML = question['answer_4'];
         docId('q-cur').innerHTML = currentQuestion +1;
     }
-    
 }
 
 function answer (selection) {
@@ -94,4 +100,13 @@ function resetAnswerButtons(){
         docId(`answer_${i}`).parentNode.classList.remove('bg-success');
         docId(`answer_${i}`).parentNode.classList.remove('bg-danger');
     }
+}
+
+function restartGame() {
+    docId('header-image').src = "./img/question-mark.jpg";
+    rightAnswers = 0;
+    currentQuestion = 0;
+    docId('questionBody').style = "";
+    docId('endScreen').style ='display: none;';
+    init();
 }

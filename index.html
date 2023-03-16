@@ -34,10 +34,18 @@
                 </div>
 
                 <div class="text-center">
-                    Du hast <b id="r-answers">XXX</b> Fragen von <b id="q-len-end">XXX</b> richtig beantwortet
+                    Du hast <b id="r-answers">XXX</b> Fragen von <b id="q-len-end">XXX</b> richtig beantwortet.
                 </div>
-                .
+                
+                <div class="button-row">
+                    <button onclick="restartGame()" class="btn btn-primary">Erneut spielen</button>
+                </div>
+
+
             </div>
+            <div class="progress" role="progressbar">
+                <div class="progress-bar" id="progress-bar" style="width: 25%">25%</div>
+              </div>
             <div class="card-body" id="questionBody">
                 <h5 class="card-title" id="questiontext">Frage</h5>
                 <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
