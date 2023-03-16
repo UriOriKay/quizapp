@@ -58,7 +58,8 @@ function answer (selection) {
 
     if(selectedQuestionNumber == question['right_answer']){
         console.log('Richtige Antwort!!');
+        docId(selection).parentNode.classList.add('bg-success');
     } else {
         console.log('Falsch');
-    }
+    }   docId(selection).parentNode.classList.add('bg-danger');
 }
