@@ -30,6 +30,8 @@ let questions = [
     },   
 ]
 
+let rightAnswers = 0;
+
 let currentQuestion = 0;
 
 function init(){
@@ -48,6 +50,9 @@ function showQuestion() {
     if(currentQuestion >= questions.length) {
         docId('endScreen').style ='';
         docId('questionBody').style ='display: none;';
+        docId('q-len-end').innerHTML = questions.length;
+        docId('r-answers').innerHTML = rightAnswers;
+
     } else {
         let question = questions[currentQuestion];
         docId('questiontext').innerHTML = question['question'];
@@ -67,8 +72,8 @@ function answer (selection) {
     let idOfRightAnswer = `answer_${question['right_answer']}`
 
     if(selectedQuestionNumber == question['right_answer']){
-        console.log('Richtige Antwort!!');
         docId(selection).parentNode.classList.add('bg-success');
+        rightAnswers++;
     } else {
         docId(selection).parentNode.classList.add('bg-danger');
         docId(idOfRightAnswer).parentNode.classList.add('bg-success')
