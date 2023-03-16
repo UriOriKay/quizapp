@@ -52,6 +52,7 @@ function showQuestion() {
         docId('questionBody').style ='display: none;';
         docId('q-len-end').innerHTML = questions.length;
         docId('r-answers').innerHTML = rightAnswers;
+        docId('header-image').src = "./img/winner.jpg";
 
     } else {
         let question = questions[currentQuestion];

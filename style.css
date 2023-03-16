@@ -39,3 +39,8 @@ body {
 .text-center {
     text-align: center;
 }
+
+.final-headline {
+    font-size: 38px;
+    margin-bottom: 24px;
+}
