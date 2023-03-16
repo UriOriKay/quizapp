@@ -29,7 +29,16 @@
         <div class="card quiz-card">
             <img src="./img/question-mark.jpg" class="card-img-top" alt="...">
             <div class="card-body" id="endScreen" style="display: none;">
-                Quiz beendet!
+                <div class="text-center">
+                    Quiz beendet!
+                </div>
+
+                <div><img class="width-100" src="./img/winner.jpg"></div>
+
+                <div class="text-center">
+                    Du hast <b>XXX</b> Fragen von <b>XXX</b> richtig beantwortet
+                </div>
+                .
             </div>
             <div class="card-body" id="questionBody">
                 <h5 class="card-title" id="questiontext">Frage</h5>
@@ -54,11 +63,12 @@
                     </div>
                 </div>
                 <div class="question-footer">
-                    <span >
+                    <span>
                         <b id="q-cur">1</b> von <b id="q-len">5</b> Fragen
                     </span>
 
-                    <button onclick="nextQuestion()" class="btn btn-primary" id="next-button" disabled>Nächste Frage</button>
+                    <button onclick="nextQuestion()" class="btn btn-primary" id="next-button" disabled>Nächste
+                        Frage</button>
                 </div>
             </div>
         </div>
