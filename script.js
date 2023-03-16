@@ -65,5 +65,5 @@ function answer (selection) {
         docId(selection).parentNode.classList.add('bg-danger');
         docId(idOfRightAnswer).parentNode.classList.add('bg-success')
     }   
-
+    docId('next-button').disabled = false;
 }
