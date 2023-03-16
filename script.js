@@ -67,3 +67,17 @@ function answer (selection) {
     }   
     docId('next-button').disabled = false;
 }
+
+function nextQuestion() {
+    currentQuestion++;
+    docId('next-button').disabled = true;
+    resetAnswerButtons();
+    showQuestion();
+}
+
+function resetAnswerButtons(){
+    for (let i = 1; i < 5; i++) {
+        docId(`answer_${i}`).parentNode.classList.remove('bg-success');
+        docId(`answer_${i}`).parentNode.classList.remove('bg-danger');
+    }
+}
