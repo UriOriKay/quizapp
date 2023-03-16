@@ -44,13 +44,20 @@ function docId(id) {
 }
 
 function showQuestion() {
-    let question = questions[currentQuestion];
-    docId('questiontext').innerHTML = question['question'];
-    docId('answer_1').innerHTML = question['answer_1'];
-    docId('answer_2').innerHTML = question['answer_2'];
-    docId('answer_3').innerHTML = question['answer_3'];
-    docId('answer_4').innerHTML = question['answer_4'];
-    docId('q-cur').innerHTML = currentQuestion +1;
+
+    if(currentQuestion >= questions.length) {
+        docId('endScreen').style ='';
+        docId('questionBody').style ='display: none;';
+    } else {
+        let question = questions[currentQuestion];
+        docId('questiontext').innerHTML = question['question'];
+        docId('answer_1').innerHTML = question['answer_1'];
+        docId('answer_2').innerHTML = question['answer_2'];
+        docId('answer_3').innerHTML = question['answer_3'];
+        docId('answer_4').innerHTML = question['answer_4'];
+        docId('q-cur').innerHTML = currentQuestion +1;
+    }
+    
 }
 
 function answer (selection) {
