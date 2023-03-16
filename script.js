@@ -50,6 +50,7 @@ function showQuestion() {
     docId('answer_2').innerHTML = question['answer_2'];
     docId('answer_3').innerHTML = question['answer_3'];
     docId('answer_4').innerHTML = question['answer_4'];
+    docId('q-cur').innerHTML = currentQuestion +1;
 }
 
 function answer (selection) {
