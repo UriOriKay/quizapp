@@ -23,9 +23,11 @@ body {
 }
 
 .img-q {
-    position: relative; 
-    top: -178px; display: flex; 
-    justify-content: center; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
     color: white; font-weight: bold; 
     background-color: rgba(128, 124, 124, 0.4);
     text-align: center;
@@ -34,6 +36,14 @@ body {
 .quiz-answer-card:hover {
     cursor: pointer;
     background-color: rgba(0,0,0,0.05);
+}
+
+.pos-cor{
+    position: relative;
+}
+
+.img-q-height {
+    height:268.99px
 }
 
 .bg-success, .bg-danger {

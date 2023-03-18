@@ -55,7 +55,6 @@ function updateToNextQuestion() {
     }
     docId('img-q').style = '';
     docId('img-q').innerHTML = question['question'];
-    docId('questiontext').style = 'display: none;';
     docId('answer_1').innerHTML = question['answer_1'];
     docId('answer_2').innerHTML = question['answer_2'];
     docId('answer_3').innerHTML = question['answer_3'];
