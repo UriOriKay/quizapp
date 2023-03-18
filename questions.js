@@ -7,7 +7,7 @@ let questions = [
         "answer_4": "Rote Raben Vilsbiburg",
         "right_answer": 3,
         "category": "Sport",
-        "level": 3,
+        "level": 2,
     },
 
     {
@@ -29,7 +29,7 @@ let questions = [
         "answer_4": "Brasilien",
         "right_answer": 2,
         "category": "Sport",
-        "level": 2,
+        "level": 3,
     },
 
     {
@@ -52,17 +52,6 @@ let questions = [
         "right_answer": 1,
         "category": "Sport",
         "level": 5,
-    },
-
-    {
-        "question": "Welche Position gibt es nicht im American Fottball?",
-        "answer_1": "Totalback",
-        "answer_2": "Quarterback",
-        "answer_3": "Halfback",
-        "answer_4": "Tight End",
-        "right_answer": 1,
-        "category": "Sport",
-        "level": 6,
     },
 
     {
