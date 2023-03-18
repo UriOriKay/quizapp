@@ -1,35 +1,3 @@
-let questions = [
-    {
-        "question": "Wer ist deutscher Rekordmeister im Volleyball der Frauen?",
-        "answer_1": "MTV Stuttgart",
-        "answer_2": "USC Münster",
-        "answer_3": "SSC Schwerin",
-        "answer_4": "Rote Raben Vilsbiburg",
-        "right_answer": 4,
-        "category": "Sport"
-    },
-
-    {
-        "question": "In welchsem Jahr war Deutschland zuletzt Handball Europameister?",
-        "answer_1": "2007",
-        "answer_2": "2016",
-        "answer_3": "1998",
-        "answer_4": "1996",
-        "right_answer": 4,
-        "category": "Sport"
-    },
-
-    {
-        "question": "In welchem Regelwerk gibt es ein Textilvergehen?",
-        "answer_1": "&lt;iframe&gt;, &lt;frame&gt;, and &lt;frameset&gt;",
-        "answer_2": "&lt;iframe&gt;",
-        "answer_3": "&lt;frame&gt;",
-        "answer_4": "&lt;frameset&gt",
-        "right_answer": 2,
-        "category": "Sport"
-    },
-]
-
 let rightAnswers = 0;
 let currentQuestion = 0;
 
