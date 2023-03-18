@@ -27,7 +27,7 @@ let questions = [
         "answer_2": "Frankreich",
         "answer_3": "Deutschland",
         "answer_4": "Brasilien",
-        "right_answer": 2,
+        "right_answer": 4,
         "category": "Sport",
         "level": 3,
     },
@@ -88,7 +88,7 @@ let questions = [
     },
 
     {
-        "question": "Über den Sieg welcher Mannschaft konnte sich Bill MUrray bei der World Series 2016 freuen?",
+        "question": "Über den Sieg welcher Mannschaft konnte sich Bill Murray bei der World Series 2016 freuen?",
         "answer_1": "New York Yankees",
         "answer_2": "Chicago White Sox",
         "answer_3": "Chicago Cubs",
@@ -108,4 +108,17 @@ let questions = [
         "category": "Sport",
         "level": 10,
     },
+
+    {
+        "question": "In welchem Land steht dieser Fels",
+        "answer_1": "USA",
+        "answer_2": "Kolumbien",
+        "answer_3": "Kroatien",
+        "answer_4": "Laos",
+        "right_answer": 2,
+        "category": "geo",
+        "level": 1,
+        "img": ".img/Penol.jpg",
+    },
+    
 ]

@@ -28,6 +28,7 @@ body {
     justify-content: center; 
     color: white; font-weight: bold; 
     background-color: rgba(128, 124, 124, 0.4);
+    text-align: center;
 }
 
 .quiz-answer-card:hover {

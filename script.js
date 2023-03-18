@@ -31,6 +31,7 @@ function gameIsOver() {
 function ShowEndScreen() {
     docId('endScreen').style = '';
     docId('questionBody').style = 'display: none;';
+    docId('img-q').style = 'display: none;';
     docId('q-len-end').innerHTML = questions.length;
     docId('r-answers').innerHTML = rightAnswers;
     docId('header-image').src = "./img/winner.jpg";
@@ -47,13 +48,22 @@ function updateProgressBar() {
 
 function updateToNextQuestion() {
     let question = questions[currentQuestion];
-    docId('questiontext').innerHTML = question['question'];
+    if (question['category']=="geo") {
+        docId('header-image').src = question['img']
+    } else{
+        docId('header-image').src = "./img/question-mark.jpg"
+    }
+    docId('img-q').style = '';
+    docId('img-q').innerHTML = question['question'];
+    docId('questiontext').style = 'display: none;';
     docId('answer_1').innerHTML = question['answer_1'];
     docId('answer_2').innerHTML = question['answer_2'];
     docId('answer_3').innerHTML = question['answer_3'];
     docId('answer_4').innerHTML = question['answer_4'];
     docId('q-cur').innerHTML = currentQuestion + 1;
 }
+
+
 
 function answer(selection) {
     let question = questions[currentQuestion];
