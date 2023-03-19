@@ -52,9 +52,9 @@ function updateProgressBar() {
 
 function updateToNextQuestion() {
     let question = questions[currentQuestion];
-    if (question['category']=="geo") {
+    if (question['category'] == "geo") {
         docId('header-image').src = question['img']
-    } else{
+    } else {
         docId('header-image').src = "./img/question-mark.jpg"
     }
     docId('img-q').style = '';
@@ -86,7 +86,7 @@ function answer(selection) {
     docId('next-button').disabled = false;
 }
 
-function rightAnswerSelected(selectedQuestionNumber, question){
+function rightAnswerSelected(selectedQuestionNumber, question) {
     return selectedQuestionNumber == question['right_answer'];
 }
 
@@ -114,35 +114,35 @@ function restartGame() {
 }
 
 function topicChoose(topic) {
-    if (is_topic_selected){
+    if (is_topic_selected) {
         activUnchoose(topic);
-    }else {
+    } else {
         activChoose(topic);
     }
     btn_active()
 }
 
-function activChoose (topic) {
+function activChoose(topic) {
     for (let i = 0; i < topics.length; i++) {
-        docId(topics[i]).disabled = true;    
+        docId(topics[i]).disabled = true;
     }
     docId(topic).disabled = false;
     docId(topic).style.backgroundColor = "rgb(219 173 93)";
     is_topic_selected = true;
 }
 
-function activUnchoose (topic) {
+function activUnchoose(topic) {
     for (let i = 0; i < topics.length; i++) {
-        docId(topics[i]).disabled = false;    
+        docId(topics[i]).disabled = false;
     }
     is_topic_selected = false;
     docId(topic).style.backgroundColor = "";
 }
 
 function modiChoose(modi) {
-    if (is_modi_selected){
+    if (is_modi_selected) {
         activModiUnchoose(modi);
-    }else {
+    } else {
         activModiChoose(modi);
     }
     btn_active()
@@ -159,14 +159,14 @@ function activModiChoose(modi) {
 
 function activModiUnchoose(modi) {
     for (let i = 0; i < modis.length; i++) {
-        docId(modis[i]).disabled = false;        
+        docId(modis[i]).disabled = false;
     }
     is_modi_selected = false;
     docId(modi).style.backgroundColor = "";
 }
 
 function btn_active() {
-    if (is_modi_selected && is_topic_selected && docId("name").value != ""){
+    if (is_modi_selected && is_topic_selected && docId("name").value != "") {
         docId("modus-button").disabled = false;
     } else {
         docId("modus-button").disabled = true;
@@ -176,14 +176,14 @@ function btn_active() {
 function quizStart() {
     topic = quiztopic();
     modus = quizmodus();
-    playround = whichQuestions(topic);
+    playround = whichQuestions(topic, modus);
     console.log(playround)
 }
 
 
 function quiztopic() {
     for (let i = 0; i < topics.length; i++) {
-        if(docId(topics[i]).disabled == false) {
+        if (docId(topics[i]).disabled == false) {
             return topics[i]
         }
     }
@@ -191,18 +191,45 @@ function quiztopic() {
 
 function quizmodus() {
     for (let i = 0; i < modis.length; i++) {
-        if(docId(modis[i]).disabled == false){
+        if (docId(modis[i]).disabled == false) {
             return modis[i]
         }
     }
 }
 
-function whichQuestions(topic) {
+function whichQuestions(topic, modi) {
     let round = [];
-    for (let i = 0; i < questions.length; i++) {
-        if(questions[i]['category'] == topic) {
-            round.push(i);
+    if (topic != "mix") {
+        for (let i = 0; i < questions.length; i++) {
+            if (questions[i]['category'] == topic) {
+                round.push(i);
+            }
+        }
+    }else {
+        round = textFunktion();
+    }
+    console.log(round);
+    return round;
+}
+
+function textFunktion() {
+    test = []
+    result = []
+    for (let i = 0; i < 10; i++) {
+        test[i] = [];
+        for (let j = 0; j < questions.length; j++) {
+            if (questions[j]['level'] == i + 1) {
+                if (test[i] == null) {
+                    test[i] = j
+                } else {
+                    test[i].push(j);
+                }
+            }
         }
     }
-    return round;
+    for (let i = 0; i < test.length; i++) {
+        random = Math.floor(Math.random() * test[i].length)
+        result.push(test[i][random])
+    }
+    return result;
 }

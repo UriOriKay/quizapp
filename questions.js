@@ -225,7 +225,7 @@ let questions = [
         "answer_4": "Myanmar",
         "right_answer": 1,
         "category": "geo",
-        "level": 9,
+        "level": 10,
         "img": "./img/Pagode.jpg",
     },
 ]
