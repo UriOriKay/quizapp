@@ -29,52 +29,53 @@
     <div class="container">
         <div id="startscreen" class="quiz-card card">
             <div class="card-body start-mar-cor">
-                <h5 class="inline">Wie ist dein Name:</h5><input class="form-control form-control-sm" type="text" placeholder="Max Mustermann">
+                <h5 class="inline">Wie ist dein Name:</h5>
+                <input id="name" class="form-control form-control-sm" type="text" placeholder="Max Mustermann" onkeyup="btn_active()">
             </div>
             <div class="card-body" id="questionBody">
                 <div class="card-body pad-in" id="questionBody">
                     <h5>Wähle dein Themengebiet</h5>
-                    <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
+                    <button class="card quiz-answer-card mb-2" id="sport" value="sport" onclick="topicChoose('sport')">
                         <div class="card-body">
                             Sport
                         </div>
-                    </div>
-                    <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
+                    </button>
+                    <button class="card quiz-answer-card mb-2" id="film" onclick="topicChoose('film')">
                         <div class="card-body">
                             Film
                         </div>
-                    </div>
-                    <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
-                        <div class="card-body"">
-                            Geography
+                    </button>
+                    <button class="card quiz-answer-card mb-2" id="geo" onclick="topicChoose('geo')">
+                        <div class="card-body">
+                            Geographie
                         </div>
-                    </div>
-                    <div class=" card quiz-answer-card mb-2" onclick="answer('answer_4')">
+                    </button>
+                    <button class=" card quiz-answer-card mb-2" id="literature" onclick="topicChoose('literature')">
                             <div class="card-body">
                                 Literatur
                             </div>
-                        </div>
-                        <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
+                        </button>
+                        <button class="card quiz-answer-card mb-2" id="mix" onclick="topicChoose('mix')">
                             <div class="card-body">
                                 Mix
                             </div>
-                        </div>
+                        </button>
                     </div>
                     <div class="pad-in">
                         <h5>Wähle deinen Modus</h5>
-                        <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
+                        <button class="card quiz-answer-card mb-2" id="all" onclick="modiChoose('all')">
                             <div class="card-body">
                                 Alle Fragen
                             </div>
-                        </div>
-                        <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
+                        </button>
+                        <button class="card quiz-answer-card mb-2" id="wwm" onclick="modiChoose('wwm')">
                             <div class="card-body">
                                 Wer wird Millionär
                             </div>
-                        </div>
+                        </button>
                     </div>
                     <div class="start-footer">
-                        <button class="btn btn-primary" id="next-button" disabled>Nächste Frage</button>
+                        <button class="btn btn-primary" id="modus-button" disabled>Starten</button>
                     </div>
                 </div>
             </div>

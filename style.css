@@ -99,4 +99,5 @@ body {
 
 .card {
     --bs-card-spacer-y: 0.7rem;
+    width: 100%;
 }

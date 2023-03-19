@@ -1,5 +1,9 @@
 let rightAnswers = 0;
 let currentQuestion = 0;
+let topics = ["sport", "film", "geo", "literature", "mix"];
+let modis = ["all", "wwm"]
+let is_topic_selected = false;
+let is_modi_selected = false;
 
 let AUDIO_SUCCESS = new Audio('./audio/success.mp3');
 let AUDIO_FAIL = new Audio('./audio/wrong.mp3');
@@ -107,4 +111,64 @@ function restartGame() {
     docId('questionBody').style = "";
     docId('endScreen').style = 'display: none;';
     init();
+}
+
+function topicChoose(topic) {
+    if (is_topic_selected){
+        activUnchoose(topic);
+    }else {
+        activChoose(topic);
+    }
+    btn_active()
+}
+
+function activChoose (topic) {
+    for (let i = 0; i < topics.length; i++) {
+        docId(topics[i]).disabled = true;    
+    }
+    docId(topic).disabled = false;
+    docId(topic).style.backgroundColor = "rgb(219 173 93)";
+    is_topic_selected = true;
+}
+
+function activUnchoose (topic) {
+    for (let i = 0; i < topics.length; i++) {
+        docId(topics[i]).disabled = false;    
+    }
+    is_topic_selected = false;
+    docId(topic).style.backgroundColor = "";
+}
+
+function modiChoose(modi) {
+    if (is_modi_selected){
+        activModiUnchoose(modi);
+    }else {
+        activModiChoose(modi);
+    }
+    btn_active()
+}
+
+function activModiChoose(modi) {
+    for (let i = 0; i < modis.length; i++) {
+        docId(modis[i]).disabled = true;
+    }
+    is_modi_selected = true;
+    docId(modi).disabled = false;
+    docId(modi).style.backgroundColor = "rgb(219 173 93)";
+}
+
+function activModiUnchoose(modi) {
+    for (let i = 0; i < modis.length; i++) {
+        docId(modis[i]).disabled = false;        
+    }
+    is_modi_selected = false;
+    docId(modi).style.backgroundColor = "";
+}
+
+function btn_active() {
+    if (is_modi_selected && is_topic_selected && docId("name").value != ""){
+        docId("modus-button").disabled = false;
+    } else {
+        docId("modus-button").disabled = true;
+    }
 }
