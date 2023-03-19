@@ -68,3 +68,31 @@ body {
     justify-content: center;
     margin-top: 24px;
 }
+
+/* Startbildschirm */
+
+.name {
+    margin-left: 25px;
+}
+
+.inline {
+    display: inline;
+}
+
+.top-line {
+    border-top: 1px solid rgba(0,0,0,0.4);  
+    margin: 1rem;
+}
+
+.button-marg {
+    margin: 5px;
+}
+
+.pad-in {
+    padding: 0 !important;
+}
+
+.start-footer {
+    display: flex;
+    justify-content: flex-end;
+}
