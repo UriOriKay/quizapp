@@ -172,3 +172,37 @@ function btn_active() {
         docId("modus-button").disabled = true;
     }
 }
+
+function quizStart() {
+    topic = quiztopic();
+    modus = quizmodus();
+    playround = whichQuestions(topic);
+    console.log(playround)
+}
+
+
+function quiztopic() {
+    for (let i = 0; i < topics.length; i++) {
+        if(docId(topics[i]).disabled == false) {
+            return topics[i]
+        }
+    }
+}
+
+function quizmodus() {
+    for (let i = 0; i < modis.length; i++) {
+        if(docId(modis[i]).disabled == false){
+            return modis[i]
+        }
+    }
+}
+
+function whichQuestions(topic) {
+    let round = [];
+    for (let i = 0; i < questions.length; i++) {
+        if(questions[i]['category'] == topic) {
+            round.push(i);
+        }
+    }
+    return round;
+}

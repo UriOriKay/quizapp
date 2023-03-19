@@ -6,7 +6,7 @@ let questions = [
         "answer_3": "SSC Schwerin",
         "answer_4": "Rote Raben Vilsbiburg",
         "right_answer": 3,
-        "category": "Sport",
+        "category": "sport",
         "level": 2,
     },
 
@@ -17,7 +17,7 @@ let questions = [
         "answer_3": "1998",
         "answer_4": "1996",
         "right_answer": 2,
-        "category": "Sport",
+        "category": "sport",
         "level": 1,
     },
 
@@ -28,7 +28,7 @@ let questions = [
         "answer_3": "Deutschland",
         "answer_4": "Brasilien",
         "right_answer": 4,
-        "category": "Sport",
+        "category": "sport",
         "level": 3,
     },
 
@@ -39,7 +39,7 @@ let questions = [
         "answer_3": "Nie",
         "answer_4": "1988",
         "right_answer": 4,
-        "category": "Sport",
+        "category": "sport",
         "level": 4,
     },
 
@@ -50,7 +50,7 @@ let questions = [
         "answer_3": "Schweden",
         "answer_4": "Großbritiannen",
         "right_answer": 1,
-        "category": "Sport",
+        "category": "sport",
         "level": 5,
     },
 
@@ -61,7 +61,7 @@ let questions = [
         "answer_3": "Halfback",
         "answer_4": "Tight End",
         "right_answer": 1,
-        "category": "Sport",
+        "category": "sport",
         "level": 6,
     },
 
@@ -72,7 +72,7 @@ let questions = [
         "answer_3": "Brose Bamberg",
         "answer_4": "Bayer Leverkusen",
         "right_answer": 4,
-        "category": "Sport",
+        "category": "sport",
         "level": 7,
     },
 
@@ -83,7 +83,7 @@ let questions = [
         "answer_3": "Norwegen",
         "answer_4": "USA",
         "right_answer": 2,
-        "category": "Sport",
+        "category": "sport",
         "level": 8,
     },
 
@@ -94,7 +94,7 @@ let questions = [
         "answer_3": "Chicago Cubs",
         "answer_4": "Boston Red Sox",
         "right_answer": 3,
-        "category": "Sport",
+        "category": "sport",
         "level": 9,
     },
 
@@ -105,7 +105,7 @@ let questions = [
         "answer_3": "372 km/h",
         "answer_4": "383 km/h",
         "right_answer": 3,
-        "category": "Sport",
+        "category": "sport",
         "level": 10,
     },
 
