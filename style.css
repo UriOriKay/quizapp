@@ -96,3 +96,7 @@ body {
     display: flex;
     justify-content: flex-end;
 }
+
+.card {
+    --bs-card-spacer-y: 0.7rem;
+}
