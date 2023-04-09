@@ -30,7 +30,8 @@
         <div id="startscreen" class="quiz-card card">
             <div class="card-body start-mar-cor">
                 <h5 class="inline">Wie ist dein Name:</h5>
-                <input id="name" class="form-control form-control-sm" type="text" placeholder="Max Mustermann" onkeyup="btn_active()">
+                <input id="name" class="form-control form-control-sm" type="text" placeholder="Max Mustermann"
+                    onkeyup="btn_active()">
             </div>
             <div class="card-body" id="questionBody">
                 <div class="card-body pad-in" id="questionBody">
@@ -51,94 +52,92 @@
                         </div>
                     </button>
                     <button class=" card quiz-answer-card mb-2" id="literature" onclick="topicChoose('literature')">
-                            <div class="card-body">
-                                Literatur
-                            </div>
-                        </button>
-                        <button class="card quiz-answer-card mb-2" id="mix" onclick="topicChoose('mix')">
-                            <div class="card-body">
-                                Mix
-                            </div>
-                        </button>
-                    </div>
-                    <div class="pad-in">
-                        <h5>Wähle deinen Modus</h5>
-                        <button class="card quiz-answer-card mb-2" id="all" onclick="modiChoose('all')">
-                            <div class="card-body">
-                                Alle Fragen
-                            </div>
-                        </button>
-                        <button class="card quiz-answer-card mb-2" id="wwm" onclick="modiChoose('wwm')">
-                            <div class="card-body">
-                                Wer wird Millionär
-                            </div>
-                        </button>
-                    </div>
-                    <div class="start-footer">
-                        <button class="btn btn-primary" id="modus-button" disabled onclick="quizStart()">Starten</button>
-                    </div>
+                        <div class="card-body">
+                            Literatur
+                        </div>
+                    </button>
+                    <button class="card quiz-answer-card mb-2" id="mix" onclick="topicChoose('mix')">
+                        <div class="card-body">
+                            Mix
+                        </div>
+                    </button>
+                </div>
+                <div class="pad-in">
+                    <h5>Wähle deinen Modus</h5>
+                    <button class="card quiz-answer-card mb-2" id="all" onclick="modiChoose('all')">
+                        <div class="card-body">
+                            Alle Fragen
+                        </div>
+                    </button>
+                    <button class="card quiz-answer-card mb-2" id="wwm" onclick="modiChoose('wwm')">
+                        <div class="card-body">
+                            Wer wird Millionär
+                        </div>
+                    </button>
+                </div>
+                <div class="start-footer">
+                    <button class="btn btn-primary" id="modus-button" disabled onclick="quizStart()">Starten</button>
                 </div>
             </div>
         </div>
-                <div class="card quiz-card" style="display: none;">
-                    <div class="pos-cor">
-                        <img src="./img/question-mark.jpg" id="header-image" class="card-img-top img-q-height">
-                        <div class="img-q" id="img-q">
-                            Wer ist deutscher Rekordmeister im Volleyball der Frauen?
-                        </div>
-                    </div>
+        <div id="playround" class="card quiz-card d-none">
+            <div class="pos-cor">
+                <img src="./img/question-mark.jpg" id="header-image" class="card-img-top img-q-height">
+                <div class="img-q" id="img-q">
+                    Wer ist deutscher Rekordmeister im Volleyball der Frauen?
+                </div>
+            </div>
 
-                    <div class="card-body" id="endScreen" style="display: none;">
-                        <div class="text-center final-headline">
-                            Quiz beendet!
-                        </div>
-
-                        <div class="text-center">
-                            Du hast <b id="r-answers">XXX</b> Fragen von <b id="q-len-end">XXX</b> richtig beantwortet.
-                        </div>
-
-                        <div class="button-row">
-                            <button onclick="restartGame()" class="btn btn-primary">Erneut spielen</button>
-                        </div>
-
-
-                    </div>
-                    <div class="progress mt-1" role="progressbar">
-                        <div class="progress-bar" id="progress-bar" style="width: 25%">25%</div>
-                    </div>
-                    <div class="card-body" id="questionBody">
-                        <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
-                            <div class="card-body" id="answer_1">
-                                Antwort
-                            </div>
-                        </div>
-                        <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
-                            <div class="card-body" id="answer_2">
-                                Antwort
-                            </div>
-                        </div>
-                        <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
-                            <div class="card-body" id="answer_3">
-                                Antwort
-                            </div>
-                        </div>
-                        <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
-                            <div class="card-body" id="answer_4">
-                                Antwort
-                            </div>
-                        </div>
-                        <div class="question-footer">
-                            <span>
-                                <b id="q-cur">1</b> von <b id="q-len">5</b> Fragen
-                            </span>
-
-                            <button onclick="nextQuestion()" class="btn btn-primary" id="next-button" disabled>Nächste
-                                Frage</button>
-                        </div>
-                    </div>
+            <div class="card-body" id="endScreen" style="display: none;">
+                <div class="text-center final-headline">
+                    Quiz beendet!
                 </div>
 
+                <div class="text-center">
+                    Du hast <b id="r-answers">XXX</b> Fragen von <b id="q-len-end">XXX</b> richtig beantwortet.
+                </div>
+
+                <div class="button-row">
+                    <button onclick="restartGame()" class="btn btn-primary">Erneut spielen</button>
+                </div>
+
+
             </div>
+            <div class="progress mt-1" role="progressbar">
+                <div class="progress-bar" id="progress-bar" style="width: 25%">25%</div>
+            </div>
+            <div class="card-body" id="questionBody">
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
+                    <div class="card-body" id="answer_1">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
+                    <div class="card-body" id="answer_2">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
+                    <div class="card-body" id="answer_3">
+                        Antwort
+                    </div>
+                </div>
+                <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
+                    <div class="card-body" id="answer_4">
+                        Antwort
+                    </div>
+                </div>
+                <div class="question-footer">
+                    <span>
+                        <b id="q-cur">1</b> von <b id="q-len">5</b> Fragen
+                    </span>
+
+                    <button onclick="nextQuestion()" class="btn btn-primary" id="next-button" disabled>Nächste
+                        Frage</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
