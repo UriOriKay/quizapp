@@ -9,11 +9,6 @@ let playround = [];
 let AUDIO_SUCCESS = new Audio('./audio/success.mp3');
 let AUDIO_FAIL = new Audio('./audio/wrong.mp3');
 
-// start of the app
-function init() {
-    docId('q-len').innerHTML = questions.length;
-}
-
 // short form of getElementByID
 function docId(id) {
     return document.getElementById(id);
@@ -21,6 +16,7 @@ function docId(id) {
 
 // function to organize the playround
 function showQuestion() {
+    docId('q-len').innerHTML = playround.length;
     if (gameIsOver()) {
         ShowEndScreen();
     } else {
@@ -32,15 +28,15 @@ function showQuestion() {
 
 // check if the game is over
 function gameIsOver() {
-    return currentQuestion >= questions.length;
+    return currentQuestion >= playround.length;
 }
 
 // showing the results of the quiz
 function ShowEndScreen() {
     docId('endScreen').style = '';
-    docId('questionBody').style = 'display: none;';
-    docId('img-q').style = 'display: none;';
-    docId('q-len-end').innerHTML = questions.length;
+    docId('questionBody').classList.add("d-none");
+    docId('img-q').classList.add("d-none");
+    docId('q-len-end').innerHTML = playround.length;
     docId('r-answers').innerHTML = rightAnswers;
     docId('header-image').src = "./img/winner.jpg";
 }
@@ -196,8 +192,8 @@ function quizStart() {
     let modus = quizmodus();
     playround = whichQuestions(topic, modus);
     docId('playround').classList.remove("d-none");
+    showQuestion();
     docId('startscreen').classList.add("d-none");
-    showQuestion()
 }
 
 // which topic is choosen?
