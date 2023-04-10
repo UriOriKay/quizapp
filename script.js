@@ -4,6 +4,7 @@ let topics = ["sport", "film", "geo", "literature", "mix"];
 let modis = ["all", "wwm"]
 let is_topic_selected = false;
 let is_modi_selected = false;
+let is_answer_selected = false;
 let playround = [];
 
 let AUDIO_SUCCESS = new Audio('./audio/success.mp3');
@@ -33,12 +34,12 @@ function gameIsOver() {
 
 // showing the results of the quiz
 function ShowEndScreen() {
-    docId('endScreen').style = '';
-    docId('questionBody').classList.add("d-none");
+    docId('endScreen').classList.remove("d-none");
+    docId('playround').classList.add("d-none");
     docId('img-q').classList.add("d-none");
     docId('q-len-end').innerHTML = playround.length;
     docId('r-answers').innerHTML = rightAnswers;
-    docId('header-image').src = "./img/winner.jpg";
+    docId('endhead-image').src = "./img/winner.jpg";
 }
 
 // the progress of the Progressbar
@@ -59,7 +60,7 @@ function updateToNextQuestion() {
     } else {
         docId('header-image').src = "./img/question-mark.jpg"
     }
-    docId('img-q').style = '';
+    docId('img-q').classList.remove("d-none");
     docId('img-q').innerHTML = question['question'];
     docId('answer_1').innerHTML = question['answer_1'];
     docId('answer_2').innerHTML = question['answer_2'];
@@ -69,24 +70,61 @@ function updateToNextQuestion() {
 }
 
 
-// button reactions on answer click
-function answer(selection) {
-    let question = playround[currentQuestion];
-    let selectedQuestionNumber = selection.slice(-1)
+function answerChoose(selection) {
+    if (is_answer_selected){
+        activUnchooseAnswer(selection);
+    } else {
+        activChooseAnswer(selection);
+    }
+    btn_active_answer();
+}
 
-    let idOfRightAnswer = `answer_${question['right_answer']}`
+function activChooseAnswer(selection) {
+    for (let i = 1; i < 5; i++){
+        docId(`answer_${i}`).disabled = true;
+    }
+    docId(selection).disabled = false;
+    docId(selection).style.backgroundColor = "rgb(219 173 93)";
+    is_answer_selected = true;
+    docId(`next-button`).onclick = function() {confirm(selection)};
+}
+
+function activUnchooseAnswer(selection) {
+    for (let i = 1; i < 5; i++) {
+        docId(`answer_${i}`).disabled = false;
+    }
+    is_answer_selected = false;
+    docId(selection).style.backgroundColor = "";
+}
+
+function btn_active_answer() {
+    if (is_answer_selected) {
+        docId(`next-button`).disabled = false;
+    } else {
+        docId(`next-button`).disabled = true;
+    }
+}
+
+function confirm(selection) {
+    let question = playround[currentQuestion];
+    let selectedQuestionNumber = selection.slice(-1);
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
 
     if (rightAnswerSelected(selectedQuestionNumber, question)) {
-        docId(selection).parentNode.classList.add('bg-success');
+        docId(selection).classList.add('bg-success');
         AUDIO_SUCCESS.play();
         rightAnswers++;
     } else {
-        docId(selection).parentNode.classList.add('bg-danger');
-        docId(idOfRightAnswer).parentNode.classList.add('bg-success')
-        AUDIO_FAIL.play();
+        docId(selection).classList.add('bg-danger');
+        docId(idOfRightAnswer).classList.add('bg-success');
+        AUDIO_SUCCESS.play();
     }
-    docId('next-button').disabled = false;
+    docId('next-button').innerHTML = "Nächste Frage";
+    docId('next-button').setAttribute('onclick', 'nextQuestion()');
+
+
 }
+
 
 // check if the answer correct
 function rightAnswerSelected(selectedQuestionNumber, question) {
@@ -97,14 +135,18 @@ function rightAnswerSelected(selectedQuestionNumber, question) {
 function nextQuestion() {
     currentQuestion++;
     docId('next-button').disabled = true;
+    is_answer_selected = false;
     resetAnswerButtons();
     showQuestion();
 }
  // make ^buttons back to default
 function resetAnswerButtons() {
     for (let i = 1; i < 5; i++) {
-        docId(`answer_${i}`).parentNode.classList.remove('bg-success');
-        docId(`answer_${i}`).parentNode.classList.remove('bg-danger');
+        docId(`answer_${i}`).classList.remove('bg-success');
+        docId(`answer_${i}`).classList.remove('bg-danger');
+        docId(`answer_${i}`).style.backgroundColor = "";
+        docId(`next-button`).innerHTML = "Bestätigen"
+
     }
 }
 
@@ -113,9 +155,8 @@ function restartGame() {
     docId('header-image').src = "./img/question-mark.jpg";
     rightAnswers = 0;
     currentQuestion = 0;
-    docId('questionBody').style = "";
-    docId('endScreen').style = 'display: none;';
-    init();
+    docId('startscreen').classList.remove("d-none");
+    docId('endScreen').classList.add("d-none");
 }
 
 // click on the topic button let's to action on the buttons

@@ -87,8 +87,44 @@
                     Wer ist deutscher Rekordmeister im Volleyball der Frauen?
                 </div>
             </div>
+            <div class="progress mt-1" role="progressbar">
+                <div class="progress-bar" id="progress-bar" style="width: 25%">25%</div>
+            </div>
+            <div class="card-body" id="questionBody">
+                <div id="answer_1"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_1')">
+                    <div class="card-body" id="answer_1">
+                        Antwort
+                    </div>
+                </div>
+                <div id="answer_2"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_2')">
+                    <div class="card-body" id="answer_2">
+                        Antwort
+                    </div>
+                </div>
+                <div id="answer_3"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_3')">
+                    <div class="card-body" id="answer_3">
+                        Antwort
+                    </div>
+                </div>
+                <div id="answer_4"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_4')">
+                    <div class="card-body" id="answer_4">
+                        Antwort
+                    </div>
+                </div>
+                <div class="question-footer">
+                    <span>
+                        <b id="q-cur">1</b> von <b id="q-len">5</b> Fragen
+                    </span>
 
-            <div class="card-body" id="endScreen" style="display: none;">
+                    <button onclick="confirm()" class="btn btn-primary" id="next-button" disabled>Bestätigen</button>
+                </div>
+            </div>
+        </div>
+        <div id="endScreen" class="card card-body d-none" >
+            <div class="pos-cor">
+                <img src="./img/winner.jpg" id="endhead-image" class="card-img-top img-q-height">
+            </div>
+            <div class="card-body" id="questionBodyEnd">
                 <div class="text-center final-headline">
                     Quiz beendet!
                 </div>
@@ -100,44 +136,10 @@
                 <div class="button-row">
                     <button onclick="restartGame()" class="btn btn-primary">Erneut spielen</button>
                 </div>
-
-
-            </div>
-            <div class="progress mt-1" role="progressbar">
-                <div class="progress-bar" id="progress-bar" style="width: 25%">25%</div>
-            </div>
-            <div class="card-body" id="questionBody">
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_1')">
-                    <div class="card-body" id="answer_1">
-                        Antwort
-                    </div>
-                </div>
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_2')">
-                    <div class="card-body" id="answer_2">
-                        Antwort
-                    </div>
-                </div>
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_3')">
-                    <div class="card-body" id="answer_3">
-                        Antwort
-                    </div>
-                </div>
-                <div class="card quiz-answer-card mb-2" onclick="answer('answer_4')">
-                    <div class="card-body" id="answer_4">
-                        Antwort
-                    </div>
-                </div>
-                <div class="question-footer">
-                    <span>
-                        <b id="q-cur">1</b> von <b id="q-len">5</b> Fragen
-                    </span>
-
-                    <button onclick="nextQuestion()" class="btn btn-primary" id="next-button" disabled>Nächste
-                        Frage</button>
-                </div>
             </div>
         </div>
-    </div>
+
+        
 </body>
 
 </html>
