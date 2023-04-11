@@ -5,6 +5,7 @@ let modis = ["all", "wwm"]
 let is_topic_selected = false;
 let is_modi_selected = false;
 let play_modi= "";
+let is_wwm_wrong = false;
 let is_answer_selected = false;
 let playround = [];
 
@@ -19,7 +20,7 @@ function docId(id) {
 // function to organize the playround
 function showQuestion() {
     docId('q-len').innerHTML = playround.length;
-    if (gameIsOver()) {
+    if (gameIsOver() || is_wwm_wrong) {
         ShowEndScreen();
     } else {
         updateProgressBar();
@@ -41,6 +42,7 @@ function ShowEndScreen() {
     docId('q-len-end').innerHTML = playround.length;
     docId('r-answers').innerHTML = rightAnswers;
     docId('endhead-image').src = "./img/winner.jpg";
+    is_wwm_wrong = false;
 }
 
 // the progress of the Progressbar
@@ -116,20 +118,21 @@ function confirm(selection) {
         AUDIO_SUCCESS.play();
         rightAnswers++;
         docId('next-button').innerHTML = "Nächste Frage";
-        docId('next-button').setAttribute('onclick', 'nextQuestion()');
     } else {
         docId(selection).classList.add('bg-danger');
         docId(idOfRightAnswer).classList.add('bg-success');
         AUDIO_SUCCESS.play();
         if (play_modi = "wwm") {
             docId('next-button').innerHTML = "Game Over";
-            docId('next-button').setAttribute('onclick', 'ShowEndScreen()');
+            is_wwm_wrong = true;
+
         }
         else {
             docId('next-button').innerHTML = "Nächste Frage";
-            docId('next-button').setAttribute('onclick', 'nextQuestion()');
         }
     }
+    docId('next-button').setAttribute('onclick', 'nextQuestion()');
+
 }
 
 
