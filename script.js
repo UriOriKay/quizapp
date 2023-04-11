@@ -4,6 +4,7 @@ let topics = ["sport", "film", "geo", "literature", "mix"];
 let modis = ["all", "wwm"]
 let is_topic_selected = false;
 let is_modi_selected = false;
+let play_modi= "";
 let is_answer_selected = false;
 let playround = [];
 
@@ -114,15 +115,21 @@ function confirm(selection) {
         docId(selection).classList.add('bg-success');
         AUDIO_SUCCESS.play();
         rightAnswers++;
+        docId('next-button').innerHTML = "Nächste Frage";
+        docId('next-button').setAttribute('onclick', 'nextQuestion()');
     } else {
         docId(selection).classList.add('bg-danger');
         docId(idOfRightAnswer).classList.add('bg-success');
         AUDIO_SUCCESS.play();
+        if (play_modi = "wwm") {
+            docId('next-button').innerHTML = "Game Over";
+            docId('next-button').setAttribute('onclick', 'ShowEndScreen()');
+        }
+        else {
+            docId('next-button').innerHTML = "Nächste Frage";
+            docId('next-button').setAttribute('onclick', 'nextQuestion()');
+        }
     }
-    docId('next-button').innerHTML = "Nächste Frage";
-    docId('next-button').setAttribute('onclick', 'nextQuestion()');
-
-
 }
 
 
@@ -204,6 +211,7 @@ function activModiChoose(modi) {
         docId(modis[i]).disabled = true;
     }
     is_modi_selected = true;
+    play_modi = modi;
     docId(modi).disabled = false;
     docId(modi).style.backgroundColor = "rgb(219 173 93)";
 }
@@ -231,7 +239,7 @@ function btn_active() {
 function quizStart() {
     let topic = quiztopic();
     let modus = quizmodus();
-    playround = whichQuestions(topic, modus);
+    playround = whichQuestions(topic);
     docId('playround').classList.remove("d-none");
     showQuestion();
     docId('startscreen').classList.add("d-none");
@@ -256,7 +264,7 @@ function quizmodus() {
 }
 
 // function which create the questions for the round
-function whichQuestions(topic, modi) {
+function whichQuestions(topic) {
     let round = [];
     if (topic != "mix") {
         for (let i = 0; i < questions.length; i++) {
