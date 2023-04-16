@@ -344,7 +344,7 @@ function whichQuestions(topic) {
 function mixQuestions() {
     test = []
     result = []
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 15; i++) {
         test[i] = [];
         for (let j = 0; j < questions.length; j++) {
             if (questions[j]['level'] == i + 1) {
@@ -358,7 +358,7 @@ function mixQuestions() {
     }
     for (let i = 0; i < test.length; i++) {
         random = Math.floor(Math.random() * test[i].length)
-        result.push(test[i][random])
+        result.push(questions[test[i][random]])
     }
     return result;
 }
