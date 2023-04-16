@@ -400,6 +400,116 @@ let questions = [
     },
 
     {
+        "question": "Wenn verklagt Anna Fitzgerald im Film: 'Beim Leben meiner Schwester'",
+        "answer_1": "Ihren Anwalt",
+        "answer_2": "Die Regierung der Vereinigten Staaten",
+        "answer_3": "Ihre Eltern",
+        "answer_4": "Den Mann ihrer Schwester",
+        "right_answer": 3,
+        "category": "literature",
+        "level": 6,
+    },
+
+    {
+        "question": "Welches Buch von Ernest Hemingway beschreibt den Spanischen Bürgerkrieg?",
+        "answer_1": "Der alte Mann und das Meer",
+        "answer_2": "Paris - Ein Fest fürs Leben",
+        "answer_3": "Inseln im Strom",
+        "answer_4": "Wem die Stunde schlägt",
+        "right_answer": 4,
+        "category": "literature",
+        "level": 7,
+    },
+
+    {
+        "question": "Wer schrieb den Roman der den totalitäteren ÜBerwachsstaat im Jahre 1984 beschreibt?",
+        "answer_1": "Aldous Huxley",
+        "answer_2": "George Orwell",
+        "answer_3": "Ernest Hemingway",
+        "answer_4": "William Golding",
+        "right_answer": 2,
+        "category": "literature",
+        "level": 8,
+    },    
+
+    {
+        "question": "Welches Buch beginnt mit den Worten 'Nennt mich Ismael'",
+        "answer_1": "Moby-Dick",
+        "answer_2": "Der große Gatsby",
+        "answer_3": "Die Brüder Karamasow",
+        "answer_4": "Das Herz der Finsternis",
+        "right_answer": 1,
+        "category": "literature",
+        "level": 9,
+    }, 
+
+    {
+        "question": "Welcher Waisenjunge von Mark Twain lebt am Ufer des Mississipi?",
+        "answer_1": "Oliver Twist",
+        "answer_2": "Peter Pan",
+        "answer_3": "Feivel Robinson",
+        "answer_4": "Tom Saywer",
+        "right_answer": 4,
+        "category": "literature",
+        "level": 10,
+    }, 
+
+    {
+        "question": "Was möchtet der kleine Prinz gezeichnet haben",
+        "answer_1": "Eine Schlange",
+        "answer_2": "Ein Elefant",
+        "answer_3": "Ein Schaaf",
+        "answer_4": "Eine Kiste",
+        "right_answer": 3,
+        "category": "literature",
+        "level": 11,
+    }, 
+
+    {
+        "question": "In welchem Jahr wurde 'Im Westen nichts neues Veröffentlicht",
+        "answer_1": "2022",
+        "answer_2": "1965",
+        "answer_3": "1928",
+        "answer_4": "1934",
+        "right_answer": 3,
+        "category": "literature",
+        "level": 12,
+    }, 
+
+    {
+        "question": "Wer verfasste den Roman einer fiktiven Wette nach der Weltreise von George Francis Train?",
+        "answer_1": "Jules Vernes",
+        "answer_2": "Theodor Fontane",
+        "answer_3": "Edgar Allan Poe",
+        "answer_4": "Thomas Mann",
+        "right_answer": 2,
+        "category": "literature",
+        "level": 13,
+    }, 
+
+    {
+        "question": "An welchem Wettkampf nimmt Katness Everdeen teil?",
+        "answer_1": "Die Quidditsch-Weltmeisterschaft",
+        "answer_2": "Die Hungerspiele",
+        "answer_3": "Dem Slash of Underworld",
+        "answer_4": "Dem U-Bahnmarathon",
+        "right_answer": 1,
+        "category": "literature",
+        "level": 14,
+    }, 
+
+    {
+        "question": "In welcher Erzählung sitzt Richter Adam wegen seiner eigenen Tat zu Gericht.",
+        "answer_1": "Die Strafkolonie",
+        "answer_2": "Stolz und Vorurteil",
+        "answer_3": "Der Process",
+        "answer_4": "Der zerbrochene Krug",
+        "right_answer": 4,
+        "category": "literature",
+        "level": 15,
+    }, 
+
+    {
         "question": "In welchem Jahr kam Pulp Fiction in die Kinos?",
         "answer_1": "1993",
         "answer_2": "1994",

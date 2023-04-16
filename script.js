@@ -8,7 +8,8 @@ let play_modi= "";
 let is_wwm_wrong = false;
 let is_answer_selected = false;
 let playround = [];
-let money = "0";
+let wwm_money = ["50", "100", "200", "300", "500", "1000", "2000", "4000", "8000", "10.000", "32.000", "64.000", "125.000", "500.000", "1.000.000"]
+let money = 0;
 let Name = "Name";
 
 
@@ -22,7 +23,6 @@ function docId(id) {
 
 // function to organize the playround
 function showQuestion() {
-    docId('q-len').innerHTML = playround.length;
     if (gameIsOver() || is_wwm_wrong) {
         ShowEndScreen();
     } else {
@@ -102,9 +102,22 @@ function updateToNextQuestion() {
     docId('answer_2').innerHTML = question['answer_2'];
     docId('answer_3').innerHTML = question['answer_3'];
     docId('answer_4').innerHTML = question['answer_4'];
-    docId('q-cur').innerHTML = currentQuestion + 1;
+    if (play_modi = "wwm") {
+        docId('moneytalk').innerHTML = `
+        <b>${wwm_money[currentQuestion]}€ Frage</b>
+        `;
+    } else {
+        docId('moneytalk').innerHTML = `<b id="q-cur">1</b> von <b id="q-len">5</b> Fragen`;
+        docId('q-cur').innerHTML = currentQuestion + 1;
+        docId('q-len').innerHTML = playround.length;
+    }
     for (let i = 1; i < 5; i++){
         docId(`answer_${i}`).disabled = false;
+    }
+    if (play_modi == "wwm") {
+        docId('surrender').classList.remove('d-none');
+    } else {
+        docId('surrender').classList.add('d-none');
     }
 }
 
@@ -154,6 +167,7 @@ function confirm(selection) {
     if (rightAnswerSelected(selectedQuestionNumber, question)) {
         docId(selection).classList.add('bg-success');
         AUDIO_SUCCESS.play();
+        money = wwm_money[rightAnswers];
         rightAnswers++;
         if (currentQuestion == 14) {
             docId('next-button').innerHTML = "Quiz Beenden"
@@ -286,6 +300,7 @@ function quizStart() {
     let topic = quiztopic();
     let modus = quizmodus();
     playround = whichQuestions(topic);
+    Name = docId('name').value
     docId('playround').classList.remove("d-none");
     showQuestion();
     docId('startscreen').classList.add("d-none");
