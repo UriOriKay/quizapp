@@ -400,7 +400,7 @@ let questions = [
     },
 
     {
-        "question": "Wenn verklagt Anna Fitzgerald im Film: 'Beim Leben meiner Schwester'",
+        "question": "Wenn verklagt Anna Fitzgerald im Film 'Beim Leben meiner Schwester'",
         "answer_1": "Ihren Anwalt",
         "answer_2": "Die Regierung der Vereinigten Staaten",
         "answer_3": "Ihre Eltern",
@@ -422,7 +422,7 @@ let questions = [
     },
 
     {
-        "question": "Wer schrieb den Roman der den totalitäteren ÜBerwachsstaat im Jahre 1984 beschreibt?",
+        "question": "Wer schrieb den Roman der den totalitäteren Überwachsstaat im Jahre 1984 beschreibt?",
         "answer_1": "Aldous Huxley",
         "answer_2": "George Orwell",
         "answer_3": "Ernest Hemingway",
@@ -466,7 +466,7 @@ let questions = [
     }, 
 
     {
-        "question": "In welchem Jahr wurde 'Im Westen nichts neues Veröffentlicht",
+        "question": "In welchem Jahr wurde 'Im Westen nichts neues Veröffentlicht.",
         "answer_1": "2022",
         "answer_2": "1965",
         "answer_3": "1928",
@@ -482,7 +482,7 @@ let questions = [
         "answer_2": "Theodor Fontane",
         "answer_3": "Edgar Allan Poe",
         "answer_4": "Thomas Mann",
-        "right_answer": 2,
+        "right_answer": 1,
         "category": "literature",
         "level": 13,
     }, 

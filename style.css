@@ -70,6 +70,10 @@ body {
     margin-top: 24px;
 }
 
+#next-button {
+    width: 127px;
+}
+
 /* Startbildschirm */
 
 .name {
@@ -101,4 +105,10 @@ body {
 .card {
     --bs-card-spacer-y: 0.7rem;
     width: 100%;
+}
+
+@media screen and (max-width: 380px)  {
+    .btn-primary {
+        font-size: 12px!important;
+    }
 }

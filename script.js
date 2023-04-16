@@ -1,3 +1,4 @@
+// global variables
 let rightAnswers = 0;
 let currentQuestion = 0;
 let topics = ["sport", "film", "geo", "literature", "mix"];
@@ -12,7 +13,7 @@ let wwm_money = ["50", "100", "200", "300", "500", "1000", "2000", "4000", "8000
 let money = 0;
 let Name = "Name";
 
-
+// the audio variables
 let AUDIO_SUCCESS = new Audio('./audio/success.mp3');
 let AUDIO_FAIL = new Audio('./audio/wrong.mp3');
 
@@ -42,39 +43,49 @@ function ShowEndScreen() {
     docId('endScreen').classList.remove("d-none");
     docId('playround').classList.add("d-none");
     docId('img-q').classList.add("d-none");
-    showEndText();
     docId('endhead-image').src = "./img/winner.jpg";
+    showEndText();
     is_wwm_wrong = false;
 }
 
+// decider which text is showing on the Endscreen
 function showEndText() {
     if(play_modi == "wwm"){
-        if (rightAnswers == 15) {
-            docId('endText').innerHTML = `Wenn das eine richtige Show wäre, wärst du ${Name} jetzt reich! Wenn du die Antworten nu in den Entwicklertools nachgesehen ast, bewirb dich doch bei der Developer Akademie. <a href="https://developerakademie.com/">Link</a>`;
-        } else if (rightAnswers > 9 && !is_wwm_wrong) {
-            docId('endText').innerHTML = `${Name}, das war Klasse. Du hast gezeigt das du zur Quizspitze gehörst. ${money} wäre dein, wenn wir im Fernsheen wären, willst du es nicht mal auf dem Stuhl versuchen?`;
-        } else if (rightAnswers > 9 && is_wwm_wrong) {
-            docId('endText').innerHTML = `Groß warebn die Augen. Immer noch groß ist das Kissen auf das du gefallen bist. ${Name}, du bist um ${money} Gedanken reicher.`;
-        } else if (rightAnswers > 4 && !is_wwm_wrong){
-            docId('endText').innerHTML = `Ein Teil vom süßen Leben sei dir gegeben. Zumindest in den ${money} Gedanken. ${Name}, danke fürs Spielen.`;
-        } else if (rightAnswers > 4 && is_wwm_wrong) {
-            docId('endText').innerHTML = `${Name} uff, das lief jetzt nicht so wie geplant. Nur ${money} blieb übrig. Trotzdem hatten wir viel Spaß zusammen.`;
-        } else if (rightAnswers > 0 && !is_wwm_wrong){
-            docId('endText').innerHTML = `${Name}, bekommt ${money} Taschengeld. Ein kleiner Schritt für große Wünsche.`;
-        } else {
-            docId('endText').innerHTML = `Na Hoppla ${Name}. Wie konnte das passieren? Jetzt aber Hop Hop nochmal von vorne. Ohne Gewinn gehst du heute nicht heim.`;
-        }
-            
+        wwmEndText();            
     } else {
-        if(rightAnswers > 12){
-            docId('endText').innerHTML = `Wow ${Name}, das war Unglaublich! Du bist ein wahrer Quizmeister! ${rightAnswers} von ${playround.length} waren richtig!`;
-        } else if (rightAnswers > 7) {
-            docId('endText').innerHTML = `Nicht schlecht Herr Specht, ähm... Ich meine ${Name}. ${rightAnswers} von ${playround.length} richtig. Das kann sich sehen lassen`;
-        } else if (rightAnswers > 3) {
-            docId('endText').innerHTML = `Puh! Das war nicht so leicht, aber beim nächsten Mal bist du noch besser, oder ${Name}? ${rightAnswers} von ${playround.length}`;                
-        } else {
-            docId('endText').innerHTML = `Schade ${Name}.Leider nur ${rightAnswers} von ${playround.length}. Aber auch ein Quizmeister fällt nicht vom Himmel.`;                
-        }    
+        allEndText();
+    }
+}
+
+// the textopportunitys for the WWM version
+function wwmEndText() {
+    if (rightAnswers == 15) {
+        docId('endText').innerHTML = `Wenn das eine richtige Show wäre, wärst du ${Name} jetzt reich! Wenn du die Antworten nu in den Entwicklertools nachgesehen ast, bewirb dich doch bei der Developer Akademie. <a href="https://developerakademie.com/">Link</a>`;
+    } else if (rightAnswers > 9 && !is_wwm_wrong) {
+        docId('endText').innerHTML = `${Name}, das war Klasse. Du hast gezeigt das du zur Quizspitze gehörst. ${money}€ wäre dein, wenn wir im Fernsehen wären, willst du es nicht mal auf dem Stuhl versuchen?`;
+    } else if (rightAnswers > 9 && is_wwm_wrong) {
+        docId('endText').innerHTML = `Groß waren die Augen. Immer noch groß ist das Kissen auf das du gefallen bist. ${Name}, du bist um ${money} Gedanken reicher.`;
+    } else if (rightAnswers > 4 && !is_wwm_wrong){
+        docId('endText').innerHTML = `Ein Teil vom süßen Leben sei dir gegeben. Zumindest in den ${money} Gedanken. ${Name}, danke fürs Spielen.`;
+    } else if (rightAnswers > 4 && is_wwm_wrong) {
+        docId('endText').innerHTML = `${Name} uff, das lief jetzt nicht so wie geplant. Nur ${money}€ blieben übrig. Trotzdem hatten wir viel Spaß zusammen.`;
+    } else if (rightAnswers > 0 && !is_wwm_wrong){
+        docId('endText').innerHTML = `${Name}, bekommt ${money}€ Taschengeld. Ein kleiner Schritt für große Wünsche.`;
+    } else {
+        docId('endText').innerHTML = `Na Hoppla ${Name}. Wie konnte das passieren? Jetzt aber Hop Hop nochmal von vorne. Ohne Gewinn gehst du heute nicht heim.`;
+    }
+}
+
+// the textopportunitys for the WWM version
+function allEndText() {
+    if(rightAnswers > 12){
+        docId('endText').innerHTML = `Wow ${Name}, das war Unglaublich! Du bist ein wahrer Quizmeister! ${rightAnswers} von ${playround.length} waren richtig!`;
+    } else if (rightAnswers > 7) {
+        docId('endText').innerHTML = `Nicht schlecht Herr Specht, ähm... Ich meine ${Name}. ${rightAnswers} von ${playround.length} richtig. Das kann sich sehen lassen!`;
+    } else if (rightAnswers > 3) {
+        docId('endText').innerHTML = `Puh! Das war nicht so leicht, aber beim nächsten Mal bist du noch besser, oder ${Name}? ${rightAnswers} von ${playround.length} waren richtig`;                
+    } else {
+        docId('endText').innerHTML = `Schade ${Name}.Leider nur ${rightAnswers} von ${playround.length}. Aber auch ein Quizmeister fällt nicht vom Himmel.`;                
     }
 }
 
@@ -91,18 +102,35 @@ function updateProgressBar() {
 // show a new question
 function updateToNextQuestion() {
     let question = playround[currentQuestion];
+    questionImage(question);
+    docId('img-q').classList.remove("d-none");
+    docId('img-q').innerHTML = question['question'];
+    answerList(question);
+    moneyTalk();
+    activateButton();
+    surrenderButton();
+}
+
+// Shows the image of the question
+function questionImage(question) {
     if (question['category'] == "geo") {
         docId('header-image').src = question['img']
     } else {
         docId('header-image').src = "./img/question-mark.jpg"
     }
-    docId('img-q').classList.remove("d-none");
-    docId('img-q').innerHTML = question['question'];
+}
+
+// the answers of the question
+function answerList(question){
     docId('answer_1').innerHTML = question['answer_1'];
     docId('answer_2').innerHTML = question['answer_2'];
     docId('answer_3').innerHTML = question['answer_3'];
     docId('answer_4').innerHTML = question['answer_4'];
-    if (play_modi = "wwm") {
+}
+
+// Shows the current Question (or moneyworth of the question)
+function moneyTalk() {
+    if (play_modi == "wwm") {
         docId('moneytalk').innerHTML = `
         <b>${wwm_money[currentQuestion]}€ Frage</b>
         `;
@@ -111,9 +139,17 @@ function updateToNextQuestion() {
         docId('q-cur').innerHTML = currentQuestion + 1;
         docId('q-len').innerHTML = playround.length;
     }
+}
+
+// the answerbuttons getting active again
+function activateButton() {
     for (let i = 1; i < 5; i++){
         docId(`answer_${i}`).disabled = false;
     }
+}
+
+// Surrender button only shows in WWM mode
+function surrenderButton() {
     if (play_modi == "wwm") {
         docId('surrender').classList.remove('d-none');
     } else {
@@ -121,51 +157,58 @@ function updateToNextQuestion() {
     }
 }
 
-
+// check if the answer button already selected
 function answerChoose(selection) {
     if (is_answer_selected){
         activUnchooseAnswer(selection);
+        docId(`next-button`).disabled = true;
     } else {
         activChooseAnswer(selection);
+        docId(`next-button`).disabled = false;
     }
-    btn_active_answer();
 }
 
+// the selecting of the button
 function activChooseAnswer(selection) {
-    for (let i = 1; i < 5; i++){
-        docId(`answer_${i}`).disabled = true;
-    }
+    buttonDisabledToogle(true);
     docId(selection).disabled = false;
     docId(selection).style.backgroundColor = "rgb(219 173 93)";
     is_answer_selected = true;
     docId(`next-button`).onclick = function() {confirm(selection)};
 }
 
+//unselecting of the button
 function activUnchooseAnswer(selection) {
-    for (let i = 1; i < 5; i++) {
-        docId(`answer_${i}`).disabled = false;
-    }
+    buttonDisabledToogle(false);
     is_answer_selected = false;
     docId(selection).style.backgroundColor = "";
 }
 
-function btn_active_answer() {
-    if (is_answer_selected) {
-        docId(`next-button`).disabled = false;
-    } else {
-        docId(`next-button`).disabled = true;
+// disable or enable the buttons
+function buttonDisabledToogle(boolean) {
+    for (let i = 1; i < 5; i++){
+        docId(`answer_${i}`).disabled = boolean;
     }
 }
 
+// showing the result of the choice after confirmation
 function confirm(selection) {
     let question = playround[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
     let idOfRightAnswer = `answer_${question['right_answer']}`;
     docId(idOfRightAnswer).disabled = true;
 
-
     if (rightAnswerSelected(selectedQuestionNumber, question)) {
-        docId(selection).classList.add('bg-success');
+        correctAnswer(selection);
+    } else {
+        wrongAnswer(selection, idOfRightAnswer);
+    }
+    docId('next-button').setAttribute('onclick', 'nextQuestion()');
+}
+
+// all happend if answer is correct
+function correctAnswer(selection) {
+    docId(selection).classList.add('bg-success');
         AUDIO_SUCCESS.play();
         money = wwm_money[rightAnswers];
         rightAnswers++;
@@ -173,25 +216,22 @@ function confirm(selection) {
             docId('next-button').innerHTML = "Quiz Beenden"
         } else {
             docId('next-button').innerHTML = "Nächste Frage"    
-        }
-        ;
-    } else {
-        docId(selection).classList.add('bg-danger');
-        docId(idOfRightAnswer).classList.add('bg-success');
-        AUDIO_FAIL.play();
-        if (play_modi == "wwm") {
-            docId('next-button').innerHTML = "Game Over";
-            is_wwm_wrong = true;
-
-        }
-        else {
-            docId('next-button').innerHTML = "Nächste Frage";
-        }
-    }
-    docId('next-button').setAttribute('onclick', 'nextQuestion()');
-
+        };
 }
 
+//all happend if answer is wrong
+function wrongAnswer(selection, idOfRightAnswer) {
+    docId(selection).classList.add('bg-danger');
+    docId(idOfRightAnswer).classList.add('bg-success');
+    AUDIO_FAIL.play();
+    if (play_modi == "wwm") {
+        docId('next-button').innerHTML = "Game Over";
+        is_wwm_wrong = true;
+    }
+    else {
+        docId('next-button').innerHTML = "Nächste Frage";
+    }
+}
 
 // check if the answer correct
 function rightAnswerSelected(selectedQuestionNumber, question) {
@@ -206,14 +246,13 @@ function nextQuestion() {
     resetAnswerButtons();
     showQuestion();
 }
- // make ^buttons back to default
+ // transform buttons back to default
 function resetAnswerButtons() {
     for (let i = 1; i < 5; i++) {
         docId(`answer_${i}`).classList.remove('bg-success');
         docId(`answer_${i}`).classList.remove('bg-danger');
         docId(`answer_${i}`).style.backgroundColor = "";
-        docId(`next-button`).innerHTML = "Bestätigen"
-
+        docId(`next-button`).innerHTML = "  Bestätigen  "
     }
 }
 
@@ -300,10 +339,10 @@ function quizStart() {
     let topic = quiztopic();
     let modus = quizmodus();
     playround = whichQuestions(topic);
-    Name = docId('name').value
+    Name = docId('name').value;
     docId('playround').classList.remove("d-none");
-    showQuestion();
     docId('startscreen').classList.add("d-none");
+    showQuestion();
 }
 
 // which topic is choosen?
@@ -344,6 +383,16 @@ function whichQuestions(topic) {
 function mixQuestions() {
     test = []
     result = []
+    questionByLevel(test);
+    for (let i = 0; i < test.length; i++) {
+        random = Math.floor(Math.random() * test[i].length)
+        result.push(questions[test[i][random]])
+    }
+    return result;
+}
+
+// getting all questions sorted by level
+function questionByLevel(test) {
     for (let i = 0; i < 15; i++) {
         test[i] = [];
         for (let j = 0; j < questions.length; j++) {
@@ -356,9 +405,4 @@ function mixQuestions() {
             }
         }
     }
-    for (let i = 0; i < test.length; i++) {
-        random = Math.floor(Math.random() * test[i].length)
-        result.push(questions[test[i][random]])
-    }
-    return result;
 }
