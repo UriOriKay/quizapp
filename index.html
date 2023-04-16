@@ -91,26 +91,26 @@
                 <div class="progress-bar" id="progress-bar" style="width: 25%">25%</div>
             </div>
             <div class="card-body" id="questionBody">
-                <div id="answer_1"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_1')">
+                <button id="answer_1"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_1')">
                     <div class="card-body" id="answer_1">
                         Antwort
                     </div>
-                </div>
-                <div id="answer_2"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_2')">
+                </button>
+                <button id="answer_2"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_2')">
                     <div class="card-body" id="answer_2">
                         Antwort
                     </div>
-                </div>
-                <div id="answer_3"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_3')">
+                </button>
+                <button id="answer_3"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_3')">
                     <div class="card-body" id="answer_3">
                         Antwort
                     </div>
-                </div>
-                <div id="answer_4"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_4')">
+                </button>
+                <button id="answer_4"class="card quiz-answer-card mb-2" onclick="answerChoose('answer_4')">
                     <div class="card-body" id="answer_4">
                         Antwort
                     </div>
-                </div>
+                </button>
                 <div class="question-footer">
                     <span>
                         <b id="q-cur">1</b> von <b id="q-len">5</b> Fragen
@@ -129,7 +129,7 @@
                     Quiz beendet!
                 </div>
 
-                <div class="text-center">
+                <div id="endText" class="text-center">
                     Du hast <b id="r-answers">XXX</b> Fragen von <b id="q-len-end">XXX</b> richtig beantwortet.
                 </div>
 

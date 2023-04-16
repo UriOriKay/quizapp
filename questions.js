@@ -522,7 +522,7 @@ let questions = [
 
     {
         "question": "Wer spielt den Verhandler Chris Sabin im Film 'Verhandlungssache'?",
-        "answer_1": "Samuel L- Jackson",
+        "answer_1": "Samuel L. Jackson",
         "answer_2": "Kevin Spacey",
         "answer_3": "Denzel Washington",
         "answer_4": "Nicolas Cage",
@@ -558,7 +558,7 @@ let questions = [
         "answer_1": "Weil er sich schlecht benommen hat.",
         "answer_2": "Weil Kredithaie hinter ihm her waren.",
         "answer_3": "Weil er schwer krank war.",
-        "answer_4": "Weil er kein Sonenlicht verturg.",
+        "answer_4": "Weil er kein Sonnenlicht verturg.",
         "right_answer": 2,
         "category": "film",
         "level": 15,

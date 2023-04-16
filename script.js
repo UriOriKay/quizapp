@@ -8,6 +8,9 @@ let play_modi= "";
 let is_wwm_wrong = false;
 let is_answer_selected = false;
 let playround = [];
+let money = "0";
+let Name = "Name";
+
 
 let AUDIO_SUCCESS = new Audio('./audio/success.mp3');
 let AUDIO_FAIL = new Audio('./audio/wrong.mp3');
@@ -39,10 +42,40 @@ function ShowEndScreen() {
     docId('endScreen').classList.remove("d-none");
     docId('playround').classList.add("d-none");
     docId('img-q').classList.add("d-none");
-    docId('q-len-end').innerHTML = playround.length;
-    docId('r-answers').innerHTML = rightAnswers;
+    showEndText();
     docId('endhead-image').src = "./img/winner.jpg";
     is_wwm_wrong = false;
+}
+
+function showEndText() {
+    if(play_modi == "wwm"){
+        if (rightAnswers == 15) {
+            docId('endText').innerHTML = `Wenn das eine richtige Show wäre, wärst du ${Name} jetzt reich! Wenn du die Antworten nu in den Entwicklertools nachgesehen ast, bewirb dich doch bei der Developer Akademie. <a href="https://developerakademie.com/">Link</a>`;
+        } else if (rightAnswers > 9 && !is_wwm_wrong) {
+            docId('endText').innerHTML = `${Name}, das war Klasse. Du hast gezeigt das du zur Quizspitze gehörst. ${money} wäre dein, wenn wir im Fernsheen wären, willst du es nicht mal auf dem Stuhl versuchen?`;
+        } else if (rightAnswers > 9 && is_wwm_wrong) {
+            docId('endText').innerHTML = `Groß warebn die Augen. Immer noch groß ist das Kissen auf das du gefallen bist. ${Name}, du bist um ${money} Gedanken reicher.`;
+        } else if (rightAnswers > 4 && !is_wwm_wrong){
+            docId('endText').innerHTML = `Ein Teil vom süßen Leben sei dir gegeben. Zumindest in den ${money} Gedanken. ${Name}, danke fürs Spielen.`;
+        } else if (rightAnswers > 4 && is_wwm_wrong) {
+            docId('endText').innerHTML = `${Name} uff, das lief jetzt nicht so wie geplant. Nur ${money} blieb übrig. Trotzdem hatten wir viel Spaß zusammen.`;
+        } else if (rightAnswers > 0 && !is_wwm_wrong){
+            docId('endText').innerHTML = `${Name}, bekommt ${money} Taschengeld. Ein kleiner Schritt für große Wünsche.`;
+        } else {
+            docId('endText').innerHTML = `Na Hoppla ${Name}. Wie konnte das passieren? Jetzt aber Hop Hop nochmal von vorne. Ohne Gewinn gehst du heute nicht heim.`;
+        }
+            
+    } else {
+        if(rightAnswers > 12){
+            docId('endText').innerHTML = `Wow ${Name}, das war Unglaublich! Du bist ein wahrer Quizmeister! ${rightAnswers} von ${playround.length} waren richtig!`;
+        } else if (rightAnswers > 7) {
+            docId('endText').innerHTML = `Nicht schlecht Herr Specht, ähm... Ich meine ${Name}. ${rightAnswers} von ${playround.length} richtig. Das kann sich sehen lassen`;
+        } else if (rightAnswers > 3) {
+            docId('endText').innerHTML = `Puh! Das war nicht so leicht, aber beim nächsten Mal bist du noch besser, oder ${Name}? ${rightAnswers} von ${playround.length}`;                
+        } else {
+            docId('endText').innerHTML = `Schade ${Name}.Leider nur ${rightAnswers} von ${playround.length}. Aber auch ein Quizmeister fällt nicht vom Himmel.`;                
+        }    
+    }
 }
 
 // the progress of the Progressbar
@@ -70,6 +103,9 @@ function updateToNextQuestion() {
     docId('answer_3').innerHTML = question['answer_3'];
     docId('answer_4').innerHTML = question['answer_4'];
     docId('q-cur').innerHTML = currentQuestion + 1;
+    for (let i = 1; i < 5; i++){
+        docId(`answer_${i}`).disabled = false;
+    }
 }
 
 
@@ -112,17 +148,24 @@ function confirm(selection) {
     let question = playround[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1);
     let idOfRightAnswer = `answer_${question['right_answer']}`;
+    docId(idOfRightAnswer).disabled = true;
+
 
     if (rightAnswerSelected(selectedQuestionNumber, question)) {
         docId(selection).classList.add('bg-success');
         AUDIO_SUCCESS.play();
         rightAnswers++;
-        docId('next-button').innerHTML = "Nächste Frage";
+        if (currentQuestion == 14) {
+            docId('next-button').innerHTML = "Quiz Beenden"
+        } else {
+            docId('next-button').innerHTML = "Nächste Frage"    
+        }
+        ;
     } else {
         docId(selection).classList.add('bg-danger');
         docId(idOfRightAnswer).classList.add('bg-success');
-        AUDIO_SUCCESS.play();
-        if (play_modi = "wwm") {
+        AUDIO_FAIL.play();
+        if (play_modi == "wwm") {
             docId('next-button').innerHTML = "Game Over";
             is_wwm_wrong = true;
 
