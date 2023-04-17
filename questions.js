@@ -493,7 +493,7 @@ let questions = [
         "answer_2": "Die Hungerspiele",
         "answer_3": "Dem Slash of Underworld",
         "answer_4": "Dem U-Bahnmarathon",
-        "right_answer": 1,
+        "right_answer": 2,
         "category": "literature",
         "level": 14,
     }, 
